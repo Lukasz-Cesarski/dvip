@@ -72,6 +72,8 @@ def read_fishnet_special() -> pd.DataFrame:
 
 
 def read_fishnet_regular(grid: int) -> pd.DataFrame:
+    assert grid in base.FISHNET_GRIDS_REGULAR, \
+        "Given grid size:'{}' not in {}!".format(grid, base.FISHNET_GRIDS_REGULAR)
     df = pd.read_csv(base.get_raw_fishnet_path(grid), **FISHNET_READ_OPTIONS_REGULAR)
     df.dropna(inplace=True)
     normalize_district_name(df)

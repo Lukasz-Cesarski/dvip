@@ -1,16 +1,16 @@
 import os
 import shutil
 import json
+import pandas as pd
 
 #
 import base
 import read_raw as rr
 
-# directories
-DESTINATION_ENCODING = 'utf-8-sig'  # to work well on windows
+DESTINATION_ENCODING = 'utf-8'
 
 
-def extract_district_ids_from_special_df(df_special):
+def extract_district_ids_from_special_df(df_special: pd.DataFrame):
     df = df_special[[rr.DISTRICT_NAME_COLUMN, rr.DISTRICT_ID_COLUMN]]
     df = df.set_index(rr.DISTRICT_NAME_COLUMN).drop_duplicates()
     df = df.sort_values(by=rr.DISTRICT_ID_COLUMN)
@@ -19,7 +19,7 @@ def extract_district_ids_from_special_df(df_special):
         json.dump(df_dict, fw, indent=4, ensure_ascii=False)
 
 
-def save_dataframe_to_csv(data_frame, path, encoding=DESTINATION_ENCODING):
+def save_dataframe_to_csv(data_frame: pd.DataFrame, path: str, encoding=DESTINATION_ENCODING):
     data_frame.index.name = rr.INDEX_COLUMN
     data_frame.to_csv(path, encoding=encoding)
 
