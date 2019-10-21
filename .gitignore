@@ -1,3 +1,16 @@
+### PROJECT .gitignore ###
+
+# PyCharm files
+.idea/**
+
+# preprocessed data
+/data/preprocessing/**
+
+# jupyter notebook sandbox
+sandbox*.ipynb
+
+
+#### PYTHON .gitignore ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
