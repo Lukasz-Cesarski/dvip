@@ -20,3 +20,5 @@ def read_occupations() -> pd.DataFrame:
 def read_fishnet(grid: int) -> pd.DataFrame:
     df = pd.read_csv(base.get_prep_fishnet_path(grid), index_col=0)
     return df
+
+# def read_places

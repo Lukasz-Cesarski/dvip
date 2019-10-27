@@ -1,5 +1,7 @@
 ### PROJECT .gitignore ###
 
+figures/*
+
 # PyCharm files
 .idea/**
 
@@ -10,7 +12,7 @@
 sandbox*.ipynb
 
 # mapbox token
-tokens/
+tokens/*
 
 
 #### PYTHON .gitignore ###
